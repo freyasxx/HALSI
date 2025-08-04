@@ -2,6 +2,8 @@
 
 This project provides the official implementation of HALSI, a hierarchical reinforcement learning (HRL) framework designed to enable dynamic latent skill abstraction and adaptive temporal decision-making. HALSI combines a Transformer-based skill encoder, a diffusion-based skill decoder, and an adaptive duration policy, allowing agents to learn semantically meaningful skills from offline data and execute them with variable temporal horizons during online training.
 
+![Framework](framework.png)
+
 Our implementation is partially based on [ReSkill](https://arxiv.org/abs/2211.02231), particularly for the environment setup. We thank the authors for open-sourcing their codebase, which served as a valuable reference for this project.
 
 The framework supports:
@@ -15,7 +17,6 @@ Experiments on manipulation tasks in Fetch environments (e.g., block manipulatio
 ## Directory Structure
 
 ```
-├── data_p.py                # Data processing script
 ├── environment.yml          # Conda environment configuration
 ├── README.md                # Project documentation
 ├── setup.py                 # Installation script
@@ -31,8 +32,7 @@ Experiments on manipulation tasks in Fetch environments (e.g., block manipulatio
 │   ├── results/             # Results and logs
 │   ├── rl/                  # Reinforcement learning code
 │   └── utils/               # Utility functions
-├── results/                 # Training results
-└── saved_dskill_models/     # Saved skill models
+└── results/                 # Training results and saved skill models
 ```
 
 ## Environment Setup
@@ -51,7 +51,7 @@ Run `halsi/data/collect_demos.py` to collect demonstration data, or download pre
 ## Train Skill Modules
 
 ```sh
-python halsi/train_skill_modules.py --config_file block/config.yaml --dataset_name fetch_block_40000
+python halsi/dynamic_skill_abstraction.py --config_file block/config.yaml --dataset_name fetch_block_40000
 ```
 
 ## Test Skill Modules
@@ -60,7 +60,7 @@ python halsi/train_skill_modules.py --config_file block/config.yaml --dataset_na
 python halsi/utils/test_skill_modules.py --dataset_name fetch_block_40000 --task block --use_skill_prior True
 ```
 
-## Train ReSkill Agent
+## Train HRL Agent
 
 ```sh
 python halsi/train_HRL_agent.py --config_file table_cleanup/config.yaml --dataset_name fetch_block_40000
