@@ -1,0 +1,46 @@
+setup:
+  env: "FetchCleanUp-v0"
+  exp_name: "fskill_agent-FetchCleanUp-v0"
+  cpu: 20   #1个gpu对应1个mpi 默认为15
+  seed: 46
+  epochs: 800
+  max_ep_len: 50
+  logistic_C: 18000
+  logistic_k: 0.001
+
+  
+skill_agent:
+  hid: 64
+  l: 2
+  gamma: 0.99
+  steps_per_epoch: 10000   # 每个epoch收集的总环境交互步数
+  clip_ratio: 0.3
+  pi_lr: 0.0001
+  vf_lr: 0.001
+  train_pi_iters: 180 
+  train_v_iters: 180 
+  lam: 0.97 
+  target_kl: 0.3   
+  act_limit: 2
+  max_duration: 5  # 技能持续时间的最大可能值，用于分类 head 的输出维度
+
+residual_agent:
+  hid: 64
+  l: 2
+  gamma: 0.99
+  clip_ratio: 0.3
+  pi_lr: 0.0001
+  vf_lr: 0.0001   # 从0.001改为0.0001
+  train_pi_iters: 180 # 从180降为40
+  train_v_iters: 180 # 从180降为40
+  lam: 0.97 
+  target_kl: 0.9     # 从0.9改成
+  act_limit: 1
+
+
+
+
+
+
+
+

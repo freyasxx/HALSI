@@ -1,0 +1,9 @@
+
+skill_vae:
+    epochs: 200
+    batch_size: 128
+    lr: 0.0001
+    n_actions: 4
+    n_obs: 25
+    n_z: 16
+    n_hidden: 128
