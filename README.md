@@ -1,6 +1,6 @@
 # HALSI: Hierarchical Adaptive Latent Skill Inference for Temporal Abstraction in Reinforcement Learning
 
-This project provides the official implementation of HALSI, a hierarchical reinforcement learning (HRL) framework designed to enable dynamic latent skill abstraction and adaptive temporal decision-making. HALSI combines a Transformer-based skill encoder, a diffusion-based skill decoder, and an adaptive duration policy, allowing agents to learn semantically meaningful skills from offline data and execute them with variable temporal horizons during online training.
+This project provides the official implementation of **HALSI**, a hierarchical reinforcement learning (HRL) framework designed to enable dynamic latent skill abstraction and adaptive temporal decision-making. HALSI combines a Transformer-based skill encoder, a diffusion-based skill decoder, and an adaptive duration policy, allowing agents to learn meaningful skills from offline data and execute them with variable temporal horizons during online training.
 
 ![Framework](framework.png)
 
@@ -69,11 +69,4 @@ python halsi/train_HRL_agent.py --config_file table_cleanup/config.yaml --datase
 ## Logging
 
 All results are logged using [Weights and Biases](https://wandb.ai). Please register and initialize your account before first use.
-
-## Code Structure
-
-- `dataset/`: Collected demonstration data
-- `halsi/`: Core code including data collection, model training, utilities
-- `results/`: Training results and logs
-- `saved_dskill_models/`: Saved skill models
 
